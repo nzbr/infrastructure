@@ -1,0 +1,5 @@
+config:
+  desec:api_token:
+    secure: AAABAAqQPqxX+9MIeFWrfpzKFGkeKEeS9njkTy8rEN9tcGgVejbCTtaS2OH0YA9RQx38DmIqISNG5MIv
+  digitalocean:token:
+    secure: AAABACjg0nhPk9pV8s2L7TmlKewdNsNKlzWhQCajhvuB8czHwt16PPDdkPQtK2YUBw+VzrIDT5VlkOfgw2m2ukJtLMQxS7YtVQqyZIblZlTGth4Iwi0bO8Qvl5sfXHqYazmWPXgUvA==
