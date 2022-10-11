@@ -9,5 +9,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/pulumi-desec" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pulumictl" vcs="Git" />
   </component>
 </project>

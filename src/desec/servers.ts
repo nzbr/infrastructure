@@ -1,11 +1,11 @@
 export const all: { [key: string]: { ip4: string; ip6: string } } = {
     avalanche: {
         ip4: '202.61.247.0',
-        ip6: '2a03:4000:45:510::',
+        ip6: '2a03:4000:53:7a::',
     },
     storm: {
         ip4: '45.9.63.165',
-        ip6: '2a03:4000:53:7a::',
+        ip6: '2a03:4000:45:510::',
     },
 };
 
