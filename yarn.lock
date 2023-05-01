@@ -30,9 +30,7 @@
     resolve "^1.7.1"
 
 "@pulumi/kubernetes@^3.0.0":
-  version "3.21.2"
-  resolved "https://registry.yarnpkg.com/@pulumi/kubernetes/-/kubernetes-3.21.2.tgz#588ca66ef2b9ef84f49a3ae4ffabf1d3a2c90a78"
-  integrity sha512-kzm/EFZYBuHY6QQ/8x5xSZspn6jgpRbtT+F41LN2TeEA5kchcNLumy+xLqY0g39DLzLFZVP9v7sC834tl2AJcA==
+  version "3.26.0"
   dependencies:
     "@pulumi/pulumi" "^3.25.0"
     "@types/glob" "^5.0.35"
