@@ -34,6 +34,14 @@ export class NzbrLinkComponent extends Component {
             ttl: 3600,
         }));
 
+        this.mk("wildcard", RRSet, () => ({
+            domain: (this.resources[domain]() as Domain).name,
+            subname: "*",
+            type: 'CNAME',
+            records: [`nzbr.link.`],
+            ttl: 3600,
+        }));
+
         this.mk('dmarc', RRSet, () => ({
             domain: (this.resources[domain]() as Domain).name,
             subname: '_dmarc',
