@@ -120,6 +120,14 @@ export class NzbrDeComponent extends Component {
             ttl: 3600,
         }));
 
+        this.mk('mailboxorg-verification', RRSet, () => ({
+            domain: (this.resources[domain]() as Domain).name,
+            subname: '8c9c28e66309919dc9295236933c8dbfddf3ad7c',
+            type: 'TXT',
+            records: ['2d82a6cf775b736f3f812a31eb5e5b50654953b5'],
+            ttl: 3600,
+        }));
+
         this.mk('TXT', RRSet, () => ({
             domain: (this.resources[domain]() as Domain).name,
             subname: '',
