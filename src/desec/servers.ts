@@ -7,11 +7,19 @@ export const all: { [key: string]: { ip4: string; ip6: string } } = {
         ip4: '45.9.63.165',
         ip6: '2a03:4000:45:510::',
     },
+    firestorm: {
+        ip4: '46.38.250.20',
+        ip6: '2a03:4000:b:120::1',
+    }
 };
 
-export const ip4 = Object.keys(all)
-    .map((k) => all[k].ip4)
+export const main: typeof all = {
+    firestorm: all.firestorm,
+}
+
+export const ip4 = Object.keys(main)
+    .map((k) => main[k].ip4)
     .filter((x?: string) => !!x);
-export const ip6 = Object.keys(all)
-    .map((k) => all[k].ip6)
+export const ip6 = Object.keys(main)
+    .map((k) => main[k].ip6)
     .filter((x?: string) => !!x);
