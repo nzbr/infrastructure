@@ -128,6 +128,16 @@ export class NzbrDeComponent extends Component {
             ttl: 3600,
         }));
 
+        this.mk('bluesky-verification', RRSet, () => ({
+            domain: (this.resources[domain]() as Domain).name,
+            subname: '_atproto',
+            type: 'TXT',
+            records: [
+                'did=did:plc:y5mspbnzjs43jp6awaienvgq',
+            ],
+            ttl: 3600,
+        }));
+
         this.mk('TXT', RRSet, () => ({
             domain: (this.resources[domain]() as Domain).name,
             subname: '',
