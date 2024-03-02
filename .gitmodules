@@ -1,0 +1,3 @@
+[submodule "pulumi/pulumi-desec"]
+	path = pulumi/pulumi-desec
+	url = https://github.com/nzbr/pulumi-desec.git
