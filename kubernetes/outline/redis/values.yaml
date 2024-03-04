@@ -1,0 +1,11 @@
+redis:
+  enabled: true
+  architecture: standalone
+  auth:
+    existingSecret: "outline-env"
+    existingSecretPasswordKey: "REDIS_PASSWORD"
+  persistence:
+    enabled: true
+    storageClass: "kadalu.pool"
+    accessMode: "ReadWriteOnce"
+    size: "2Gi"

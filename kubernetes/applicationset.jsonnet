@@ -25,7 +25,7 @@ local revision = 'main';
     ],
     template: {
       metadata: {
-        name: '{{.path.basename}}',
+        name: '{{ if not (eq (index .path.segments 1) .path.basename) }}{{ index .path.segments 1 }}-{{ end }}{{ .path.basename }}',
         finalizers: ['resources-finalizer.argocd.argoproj.io'],
       },
       spec: {
