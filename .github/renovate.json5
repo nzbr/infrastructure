@@ -3,4 +3,13 @@
   extends: [
     "config:base",
   ],
+  regexManagers: [
+    {
+      fileMatch: ["^.*\\.(j|lib)sonnet$"],
+      matchStrings: [
+        'image *: *"(?<depName>[^"]+):(?<currentValue>[^"]+)(@(?<currentDigest>sha256:[a-f0-9]+))?"',
+      ],
+      datasourceTemplate: "docker",
+    },
+  ]
 }
