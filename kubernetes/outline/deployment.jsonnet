@@ -24,7 +24,7 @@ local env = std.objectValuesAll(std.mapWithKey(
   spec: {
     selector: {
       matchLabels: {
-        app: values.name,
+        "app.kubernetes.io/name": values.name,
       },
     },
     strategy: {
@@ -33,10 +33,31 @@ local env = std.objectValuesAll(std.mapWithKey(
     template: {
       metadata: {
         labels: {
-          app: values.name,
+          "app.kubernetes.io/name": values.name,
         },
       },
       spec: {
+        affinity: {
+          podAffinity: {
+            preferredDuringSchedulingIgnoredDuringExecution: [
+              {
+                weight: 100,
+                podAffinityTerm: {
+                  labelSelector: {
+                    matchExpressions: [
+                      {
+                        key: "app.kubernetes.io/name",
+                        operator: "In",
+                        values: ["redis"],
+                      },
+                    ],
+                  },
+                  topologyKey: "kubernetes.io/hostname",
+                },
+              },
+            ],
+          },
+        },
         initContainers: [
           {
             name: "migrate-db",
