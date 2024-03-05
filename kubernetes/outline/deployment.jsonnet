@@ -11,6 +11,7 @@ local env = std.objectValuesAll(std.mapWithKey(
     "PORT": "3000",
     "PGSSLMODE": "disable",
     "FILE_STORAGE": "s3",
+    "DEFAULT_LANGUAGE": "de_DE",
   },
 ));
 
