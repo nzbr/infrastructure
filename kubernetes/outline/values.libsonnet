@@ -1,6 +1,13 @@
+local name = "outline";
+local host = "wiki.nzbr.de";
+
 {
-  name: "outline",
+  name: name,
   namespace: "outline",
-  url: "https://wiki.nzbr.de",
+  labels: {
+    "app.kubernetes.io/name": name,
+  },
+  host: host,
+  url: "https://"+host,
   image: "outlinewiki/outline:0.69.1",
 }

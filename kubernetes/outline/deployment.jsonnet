@@ -24,18 +24,14 @@ local env = std.objectValuesAll(std.mapWithKey(
   },
   spec: {
     selector: {
-      matchLabels: {
-        "app.kubernetes.io/name": values.name,
-      },
+      matchLabels: values.labels,
     },
     strategy: {
       type: "Recreate",
     },
     template: {
       metadata: {
-        labels: {
-          "app.kubernetes.io/name": values.name,
-        },
+        labels: values.labels,
       },
       spec: {
         affinity: {
@@ -77,7 +73,10 @@ local env = std.objectValuesAll(std.mapWithKey(
             envFrom: envFrom,
             env: env,
             ports: [
-              { containerPort: 3000 },
+              {
+                name: "http",
+                containerPort: 3000,
+              },
             ],
           },
         ],
