@@ -1,7 +1,7 @@
 local values = import 'values.libsonnet';
 
 local envFrom = [
- { secretRef: { name: "outline-env" } },
+ { secretRef: { name: values.name + "-env" } },
 ];
 
 local env = std.objectValuesAll(std.mapWithKey(

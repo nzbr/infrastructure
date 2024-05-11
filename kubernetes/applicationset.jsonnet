@@ -44,6 +44,9 @@ local revision = 'main';
             prune: true,
             selfHeal: true,
           },
+          syncOptions: [
+            'CreateNamespace=true',
+          ],
         },
       },
     },

@@ -2,7 +2,7 @@ valkey:
   enabled: true
   architecture: standalone
   auth:
-    existingSecret: 'outline-env'
+    existingSecret: 'grist-env'
     existingSecretPasswordKey: 'REDIS_PASSWORD'
   master:
     persistence:
@@ -20,5 +20,5 @@ valkey:
                   - key: 'app.kubernetes.io/name'
                     operator: 'In'
                     values:
-                      - 'outline'
+                      - 'grist'
               topologyKey: 'kubernetes.io/hostname'
