@@ -1,0 +1,24 @@
+valkey:
+  enabled: true
+  architecture: standalone
+  auth:
+    existingSecret: 'outline-env'
+    existingSecretPasswordKey: 'REDIS_PASSWORD'
+  persistence:
+    enabled: true
+    storageClass: 'kadalu.pool'
+    accessMode: 'ReadWriteOnce'
+    size: '2Gi'
+  master:
+    affinity:
+      podAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                  - key: 'app.kubernetes.io/name'
+                    operator: 'In'
+                    values:
+                      - 'outline'
+              topologyKey: 'kubernetes.io/hostname'

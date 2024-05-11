@@ -45,7 +45,7 @@ local env = std.objectValuesAll(std.mapWithKey(
                       {
                         key: "app.kubernetes.io/name",
                         operator: "In",
-                        values: ["redis"],
+                        values: ["valkey"],
                       },
                     ],
                   },
