@@ -5,9 +5,15 @@
     name: "ci",
   },
   spec: {
+    clusterResourceWhitelist: [
+      { group: "*", kind: "*", }
+    ],
     destinations: [{
       namespace: '*',
       server: 'https://kubernetes.default.svc',
     }],
+    sourceRepos: [
+      "*"
+    ],
   },
 }
