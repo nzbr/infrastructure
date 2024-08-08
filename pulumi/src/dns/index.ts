@@ -1,2 +1,2 @@
-require('./nzbr-link');
-require('./nzbr-de');
+export * from './nzbr-de';
+export * from './nzbr-link';

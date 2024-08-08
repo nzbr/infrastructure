@@ -1,1 +1,1 @@
-require('./dns');
+export * from './dns';
