@@ -13,7 +13,7 @@ importers:
         version: link:pulumi-desec/sdk/nodejs/bin
       '@pulumi/digitalocean':
         specifier: ^4.15.2
-        version: 4.15.2
+        version: 4.31.0
       '@pulumi/kubernetes':
         specifier: ^3.0.0
         version: 3.0.0
@@ -102,8 +102,8 @@ packages:
   '@protobufjs/utf8@1.1.0':
     resolution: {integrity: sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==}
 
-  '@pulumi/digitalocean@4.15.2':
-    resolution: {integrity: sha512-ZmLnPQu9QCZihEtTsbVeZgdSUM1+W1LWxXfLAC7cNsyDi7OapI+FAi03gwuLNFNMBBj1nJCyoLBeivrU3nDHgg==}
+  '@pulumi/digitalocean@4.31.0':
+    resolution: {integrity: sha512-29ZvLcSjc1b9KAFCSCR65dtV69Pu8OUDeBgNKT9a6J6jBaH8lzm/2y+yaohTSX1CbczQP0E/2YNl6/wjpsnP/Q==}
 
   '@pulumi/kubernetes@3.0.0':
     resolution: {integrity: sha512-MhP1THt/yYQU+DK5UlAtDE7+7lJrGHkrOD7F00rYIKOYajxYK3bFnbjL+6RbN3VNioxH1T7ZWbphrLt1Wr+auA==}
@@ -237,6 +237,7 @@ packages:
 
   debuglog@1.0.1:
     resolution: {integrity: sha512-syBZ+rnAK3EgMsH2aYEOLUW7mZSY9Gb+0wUMCFsZvcmiz+HigA0LOcq/HoQqVuGG+EKykunc7QG2bzrponfaSw==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   define-properties@1.2.0:
     resolution: {integrity: sha512-xvqAVKGfT1+UAvPwKTVw/njhdQ8ZhXK4lI0bCIuCMrp2up9nPnaDftrLtmpTazqd1o+UY4zgzU+avtMbDP+ldA==}
@@ -297,6 +298,9 @@ packages:
   function-bind@1.1.1:
     resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
 
+  function-bind@1.1.2:
+    resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
+
   function.prototype.name@1.1.5:
     resolution: {integrity: sha512-uN7m/BzVKQnCUF/iW8jYea67v++2u7m5UgENbHRtdDVclOUP+FMPlCNdmk0h/ysGyo2tavMJEDqJAkJdRa1vMA==}
     engines: {node: '>= 0.4'}
@@ -317,6 +321,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    deprecated: Glob versions prior to v9 are no longer supported
 
   globalthis@1.0.3:
     resolution: {integrity: sha512-sFdI5LyBiNTHjRd7cGPWapiHWMOXKyuBNX/cWJ3NfzrZQVa8GI/8cofCl74AOVqq9W5kNmguTIzJ/1s2gyI9wA==}
@@ -353,11 +358,16 @@ packages:
     resolution: {integrity: sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==}
     engines: {node: '>= 0.4.0'}
 
+  hasown@2.0.2:
+    resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
+    engines: {node: '>= 0.4'}
+
   hosted-git-info@2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
 
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -382,6 +392,10 @@ packages:
 
   is-core-module@2.12.1:
     resolution: {integrity: sha512-Q4ZuBAe2FUsKtyQJoQHlvP8OvBERxO3jEmy1I7hcRXcJBGGHFh/aJBswbXuS9sgrDH2QUO8ilkwNPHvHMd8clg==}
+
+  is-core-module@2.15.0:
+    resolution: {integrity: sha512-Dd+Lb2/zvk9SKy1TGCt1wFJFo/MWBPMX5x7KcvLajWTGuomczdQX61PvY5yK6SVACwpoexWo81IfFyoKY2QnTA==}
+    engines: {node: '>= 0.4'}
 
   is-date-object@1.0.5:
     resolution: {integrity: sha512-9YQaSxsAiSwcvS33MBk3wTCVnWK+HhF8VZR2jRxehM16QcVOdHqPn4VPHmRK4lSr38n9JriurInLcP90xsYNfQ==}
@@ -520,6 +534,7 @@ packages:
 
   read-package-json@2.1.2:
     resolution: {integrity: sha512-D1KmuLQr6ZSJS0tW8hf3WGpRlwszJOXZ3E8Yd/DNRaM5d+1wVRZdHlpGBLAuovjr28LbWvjpWkBHMxpRGGjzNA==}
+    deprecated: This package is no longer supported. Please use @npmcli/package-json instead.
 
   read-package-tree@5.3.1:
     resolution: {integrity: sha512-mLUDsD5JVtlZxjSlPPx1RETkNjjvQYuweKwNVt1Sn8kP5Jh44pvYuUHCp6xSVDZWbNxVxG5lyZJ921aJH61sTw==}
@@ -547,6 +562,10 @@ packages:
 
   resolve@1.22.2:
     resolution: {integrity: sha512-Sb+mjNHOULsBv818T40qSPeRiuWLyaGMa5ewydRLFimneixmVy2zdivRl+AF6jaYPC8ERxGDmFSiqui6SfPd+g==}
+    hasBin: true
+
+  resolve@1.22.8:
+    resolution: {integrity: sha512-oKWePCxqpd6FlLvGV1VU0x7bkPmmCNolxzjMf4NczoDnQcIWrAF+cPtZn5i6n+RfD2d9i0tzpKnG6Yk168yIyw==}
     hasBin: true
 
   safe-array-concat@1.0.0:
@@ -781,12 +800,12 @@ snapshots:
 
   '@protobufjs/utf8@1.1.0': {}
 
-  '@pulumi/digitalocean@4.15.2':
+  '@pulumi/digitalocean@4.31.0':
     dependencies:
       '@pulumi/pulumi': 3.0.0
       builtin-modules: 3.0.0
       read-package-tree: 5.3.1
-      resolve: 1.22.2
+      resolve: 1.22.8
 
   '@pulumi/kubernetes@3.0.0':
     dependencies:
@@ -1023,6 +1042,8 @@ snapshots:
 
   function-bind@1.1.1: {}
 
+  function-bind@1.1.2: {}
+
   function.prototype.name@1.1.5:
     dependencies:
       call-bind: 1.0.2
@@ -1085,6 +1106,10 @@ snapshots:
     dependencies:
       function-bind: 1.1.1
 
+  hasown@2.0.2:
+    dependencies:
+      function-bind: 1.1.2
+
   hosted-git-info@2.8.9: {}
 
   inflight@1.0.6:
@@ -1120,6 +1145,10 @@ snapshots:
   is-core-module@2.12.1:
     dependencies:
       has: 1.0.3
+
+  is-core-module@2.15.0:
+    dependencies:
+      hasown: 2.0.2
 
   is-date-object@1.0.5:
     dependencies:
@@ -1309,6 +1338,12 @@ snapshots:
   resolve@1.22.2:
     dependencies:
       is-core-module: 2.12.1
+      path-parse: 1.0.7
+      supports-preserve-symlinks-flag: 1.0.0
+
+  resolve@1.22.8:
+    dependencies:
+      is-core-module: 2.15.0
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
 
