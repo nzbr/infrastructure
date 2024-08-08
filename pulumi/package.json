@@ -3,18 +3,23 @@
     "main": "src/index.ts",
     "scripts": {
         "preview": "pulumi preview",
-        "up": "pulumi up"
+        "up": "pulumi up",
+        "install-provider": "ts-node install-provider.ts"
     },
     "devDependencies": {
+        "@types/command-exists": "^1.2.3",
         "@types/node": "^14",
+        "command-exists": "^1.2.9",
         "prettier": "^2.7.1",
+        "ts-node": "^10.9.2",
         "typescript": "^4.8.2"
     },
     "dependencies": {
-        "@pulumi/desec": "file:pulumi-desec/sdk/nodejs/bin",
+        "@pulumi/desec": "link:pulumi-desec\\sdk\\nodejs\\bin",
         "@pulumi/digitalocean": "^4.15.2",
         "@pulumi/kubernetes": "^3.0.0",
         "@pulumi/kubernetesx": "^0.1.5",
         "@pulumi/pulumi": "^3.0.0"
-    }
+    },
+    "packageManager": "pnpm@9.7.0+sha512.dc09430156b427f5ecfc79888899e1c39d2d690f004be70e05230b72cb173d96839587545d09429b55ac3c429c801b4dc3c0e002f653830a420fa2dd4e3cf9cf"
 }
