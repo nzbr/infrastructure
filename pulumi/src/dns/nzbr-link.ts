@@ -1,10 +1,8 @@
 import {A, AAAA, CNAME, D, DefaultTTL, DnsProvider, TXT} from "../dnscontrol";
 import {DESEC} from "../dnscontrol/desec";
-import {servers} from "./servers";
+import {servers} from "./common";
 
-D('nzbr.link', null,
-  DnsProvider(DESEC),
-  DefaultTTL(3600), // minimum value for desec.io
+D('nzbr.link', null, DnsProvider(DESEC), DefaultTTL(3600), // minimum value for desec.io
   A('@', servers.firestorm.ip4),
   AAAA('@', servers.firestorm.ip6),
   CNAME('www', 'nzbr.link.'),
