@@ -17,7 +17,7 @@
     "dependencies": {
         "@pulumi/desec": "link:pulumi-desec\\sdk\\nodejs\\bin",
         "@pulumi/digitalocean": "^4.15.2",
-        "@pulumi/kubernetes": "^3.0.0",
+        "@pulumi/kubernetes": "^4.0.0",
         "@pulumi/kubernetesx": "^0.1.5",
         "@pulumi/pulumi": "^3.0.0"
     },
