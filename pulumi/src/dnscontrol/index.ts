@@ -80,7 +80,7 @@ export const A = genericRecord('A');
 export const AAAA = genericRecord('AAAA');
 export const ALIAS = uniqueRecord('ALIAS');
 export const CAA = (name: string, tag: "issue" | "issuewild" | "iodef", value: string, ...modifiers: RecordModifier[]) => (domain: DomainComponent) => {
-  genericRecord('CAA')(name, `0 ${tag} ${value}`, ...modifiers)(domain);
+  genericRecord('CAA')(name, `0 ${tag} "${value}"`, ...modifiers)(domain);
 }
 export const CAA_BUILDER = (args: {
   label?: string,
@@ -99,10 +99,10 @@ export const CAA_BUILDER = (args: {
 
   const ttlModifier = (ttl) ? TTL(ttl) : NOOP_RECORD_MODIFIER;
 
-  CAA(label, 'iodef', iodef, ...(iodef_critical ? [CAA_CRITICAL, ttlModifier] : [ttlModifier]))(domain);
   issue.forEach((value) =>
     CAA(label, 'issue', value, ...(issue_critical ? [CAA_CRITICAL, ttlModifier] : [ttlModifier]))(domain)
   );
+  CAA(label, 'iodef', iodef, ...(iodef_critical ? [CAA_CRITICAL, ttlModifier] : [ttlModifier]))(domain);
   issuewild.forEach((value) =>
     CAA(label, 'issuewild', value, ...(issuewild_critical ? [CAA_CRITICAL, ttlModifier] : [ttlModifier]))(domain)
   );
