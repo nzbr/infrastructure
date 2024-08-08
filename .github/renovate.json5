@@ -1,15 +1,22 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: [
-    "config:base",
+    "config:base"
   ],
   regexManagers: [
     {
       fileMatch: ["^.*\\.(j|lib)sonnet$"],
       matchStrings: [
-        'image *: *"(?<depName>[^"]+):(?<currentValue>[^"]+)(@(?<currentDigest>sha256:[a-f0-9]+))?"',
+        'image *: *"(?<depName>[^"]+):(?<currentValue>[^"]+)(@(?<currentDigest>sha256:[a-f0-9]+))?"'
       ],
-      datasourceTemplate: "docker",
-    },
-  ]
+      datasourceTemplate: "docker"
+    }
+  ],
+  lockFileMaintenance: {
+    enabled: true,
+    extends: ["schedule:weekly"],
+  },
+  nix: {
+    enabled: true
+  }
 }
