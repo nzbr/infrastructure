@@ -3,7 +3,7 @@ import {Domain, RRSet} from "@pulumi/desec";
 import {log} from "@pulumi/pulumi";
 
 export const DESEC: DNSProviderImpl = (domain) => {
-  new Domain(domain.name, {
+  const domainResource = new Domain(domain.name, {
     name: domain.name,
   }, {
     parent: domain,
@@ -24,6 +24,9 @@ export const DESEC: DNSProviderImpl = (domain) => {
         ttl: record.ttl || domain.defaultTTL,
       }, {
         parent: domain,
+        dependsOn: [
+          domainResource
+        ],
       });
     });
   });

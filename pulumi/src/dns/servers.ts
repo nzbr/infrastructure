@@ -1,4 +1,4 @@
-export const all: { [key: string]: { ip4: string; ip6: string } } = {
+export const servers: { [key: string]: { ip4: string; ip6: string } } = {
     avalanche: {
         ip4: '202.61.247.0',
         ip6: '2a03:4000:53:7a::',
@@ -13,8 +13,8 @@ export const all: { [key: string]: { ip4: string; ip6: string } } = {
     }
 };
 
-export const main: typeof all = {
-    firestorm: all.firestorm,
+export const main: typeof servers = {
+    firestorm: servers.firestorm,
 }
 
 export const ip4 = Object.keys(main)

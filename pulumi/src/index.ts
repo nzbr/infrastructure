@@ -1,4 +1,4 @@
-import { DesecComponent } from './desec';
+import { DesecComponent } from './dns';
 import { evaluateResources } from './component';
 
 new DesecComponent();

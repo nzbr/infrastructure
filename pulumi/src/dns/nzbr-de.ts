@@ -27,12 +27,12 @@ export class NzbrDeComponent extends Component {
             ttl: 3600,
         }));
 
-        for (let srv in servers.all) {
+        for (let srv in servers.servers) {
             this.mk(`${srv}4`, RRSet, () => ({
                 domain: (this.resources[domain]() as Domain).name,
                 subname: srv,
                 type: 'A',
-                records: [servers.all[srv].ip4],
+                records: [servers.servers[srv].ip4],
                 ttl: 3600,
             }));
 
@@ -40,7 +40,7 @@ export class NzbrDeComponent extends Component {
                 domain: (this.resources[domain]() as Domain).name,
                 subname: srv,
                 type: 'AAAA',
-                records: [servers.all[srv].ip6],
+                records: [servers.servers[srv].ip6],
                 ttl: 3600,
             }));
         }
