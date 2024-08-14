@@ -34,7 +34,7 @@ export const mailboxOrgRecords = [
   MX('@', 10, 'mxext2.mailbox.org.'),
   MX('@', 20, 'mxext3.mailbox.org.'),
   SRV('_autodiscover._tcp', 0, 0, 443, 'mailbox.org.'),
-  TXT('@', 'v=spf1 include:mailbox.org'),
+  TXT('@', 'v=spf1 include:mailbox.org ~all'),
   CNAME('mbo0001._domainkey', 'mbo0001._domainkey.mailbox.org.'),
   CNAME('mbo0002._domainkey', 'mbo0002._domainkey.mailbox.org.'),
   CNAME('mbo0003._domainkey', 'mbo0003._domainkey.mailbox.org.'),
