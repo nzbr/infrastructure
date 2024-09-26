@@ -9,5 +9,5 @@ local host = "wiki.nzbr.de";
   },
   host: host,
   url: "https://"+host,
-  image: "outlinewiki/outline:0.78.0",
+  image: "outlinewiki/outline:0.80.2",
 }
