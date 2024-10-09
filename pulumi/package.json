@@ -10,7 +10,7 @@
         "@types/command-exists": "^1.2.3",
         "@types/node": "^20.0.0",
         "command-exists": "^1.2.9",
-        "prettier": "^2.7.1",
+        "prettier": "^3.0.0",
         "ts-node": "^10.9.2",
         "typescript": "^5.0.0"
     },
