@@ -1,0 +1,25 @@
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+
+jobs:
+  pulumi-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Install nix
+        uses: cachix/install-nix-action@v30
+
+      - name: Activate nix shell
+        uses: lukas-mertens/switch-into-nix-shell@main
+
+      - name: Install node dependencies
+        working-directory: pulumi-desec
+        run: pnpm install
