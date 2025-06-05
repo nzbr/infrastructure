@@ -1,8 +1,9 @@
 import {A, AAAA, CNAME, D, DefaultTTL, DnsProvider, TXT} from "../dnscontrol";
 import {DESEC} from "../dnscontrol/desec";
 import {servers} from "./common";
+import {PowerDNS} from "../dnscontrol/powerdns";
 
-D('nzbr.link', null, DnsProvider(DESEC), DefaultTTL(3600), // minimum value for desec.io
+D('nzbr.link', null, DnsProvider(DESEC, PowerDNS), DefaultTTL(3600), // minimum value for desec.io
   TXT('_servfail-challenge', 'AhUx5mH4_Cg_Z81jMZzM0IS02'),
   A('@', servers.firestorm.ip4),
   AAAA('@', servers.firestorm.ip6),

@@ -1,8 +1,8 @@
 {
     "name": "@pulumi/powerdns",
-    "version": "1.5.0",
+    "version": "0.0.3",
     "description": "A Pulumi provider dynamically bridged from powerdns.",
-    "repository": "https://github.com/pan-net/terraform-provider-powerdns",
+    "repository": "https://github.com/gonzolino/terraform-provider-powerdns",
     "main": "bin/index.js",
     "scripts": {
         "build": "tsc",
@@ -22,8 +22,8 @@
         "version": "0.11.0",
         "parameterization": {
             "name": "powerdns",
-            "version": "1.5.0",
-            "value": "eyJyZW1vdGUiOnsidXJsIjoicmVnaXN0cnkub3BlbnRvZnUub3JnL3Bhbi1uZXQvcG93ZXJkbnMiLCJ2ZXJzaW9uIjoiMS41LjAifX0="
+            "version": "0.0.3",
+            "value": "eyJyZW1vdGUiOnsidXJsIjoicmVnaXN0cnkub3BlbnRvZnUub3JnL2dvbnpvbGluby9wb3dlcmRucyIsInZlcnNpb24iOiIwLjAuMyJ9fQ=="
         }
     }
 }

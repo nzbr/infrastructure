@@ -32,13 +32,18 @@ export class Zone extends pulumi.CustomResource {
         return obj['__pulumiType'] === Zone.__pulumiType;
     }
 
-    public readonly account!: pulumi.Output<string | undefined>;
+    /**
+     * Zone kind, one of "Native", "Master", "Slave".
+     */
     public readonly kind!: pulumi.Output<string>;
-    public readonly masters!: pulumi.Output<string[] | undefined>;
+    /**
+     * Name of the zone (e.g. "example.com.") MUST have a trailing dot.
+     */
     public readonly name!: pulumi.Output<string>;
-    public readonly nameservers!: pulumi.Output<string[] | undefined>;
-    public readonly soaEditApi!: pulumi.Output<string | undefined>;
-    public readonly zoneId!: pulumi.Output<string>;
+    /**
+     * The id of the server.
+     */
+    public readonly serverId!: pulumi.Output<string>;
 
     /**
      * Create a Zone resource with the given unique name, arguments, and options.
@@ -53,25 +58,20 @@ export class Zone extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
-            resourceInputs["account"] = state ? state.account : undefined;
             resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["masters"] = state ? state.masters : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nameservers"] = state ? state.nameservers : undefined;
-            resourceInputs["soaEditApi"] = state ? state.soaEditApi : undefined;
-            resourceInputs["zoneId"] = state ? state.zoneId : undefined;
+            resourceInputs["serverId"] = state ? state.serverId : undefined;
         } else {
             const args = argsOrState as ZoneArgs | undefined;
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            resourceInputs["account"] = args ? args.account : undefined;
+            if ((!args || args.serverId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'serverId'");
+            }
             resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["masters"] = args ? args.masters : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nameservers"] = args ? args.nameservers : undefined;
-            resourceInputs["soaEditApi"] = args ? args.soaEditApi : undefined;
-            resourceInputs["zoneId"] = args ? args.zoneId : undefined;
+            resourceInputs["serverId"] = args ? args.serverId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Zone.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());
@@ -82,24 +82,34 @@ export class Zone extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Zone resources.
  */
 export interface ZoneState {
-    account?: pulumi.Input<string>;
+    /**
+     * Zone kind, one of "Native", "Master", "Slave".
+     */
     kind?: pulumi.Input<string>;
-    masters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of the zone (e.g. "example.com.") MUST have a trailing dot.
+     */
     name?: pulumi.Input<string>;
-    nameservers?: pulumi.Input<pulumi.Input<string>[]>;
-    soaEditApi?: pulumi.Input<string>;
-    zoneId?: pulumi.Input<string>;
+    /**
+     * The id of the server.
+     */
+    serverId?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a Zone resource.
  */
 export interface ZoneArgs {
-    account?: pulumi.Input<string>;
+    /**
+     * Zone kind, one of "Native", "Master", "Slave".
+     */
     kind: pulumi.Input<string>;
-    masters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of the zone (e.g. "example.com.") MUST have a trailing dot.
+     */
     name?: pulumi.Input<string>;
-    nameservers?: pulumi.Input<pulumi.Input<string>[]>;
-    soaEditApi?: pulumi.Input<string>;
-    zoneId?: pulumi.Input<string>;
+    /**
+     * The id of the server.
+     */
+    serverId: pulumi.Input<string>;
 }

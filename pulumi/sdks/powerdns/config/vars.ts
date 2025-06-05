@@ -8,7 +8,7 @@ declare var exports: any;
 const __config = new pulumi.Config("powerdns");
 
 /**
- * REST API authentication key
+ * PowerDNS API key for authentication. Can be set via environment variable `POWERDNS_API_KEY`.
  */
 export declare const apiKey: string | undefined;
 Object.defineProperty(exports, "apiKey", {
@@ -19,62 +19,7 @@ Object.defineProperty(exports, "apiKey", {
 });
 
 /**
- * Content or path of a Root CA to be used to verify PowerDNS's SSL certificate
- */
-export declare const caCertificate: string | undefined;
-Object.defineProperty(exports, "caCertificate", {
-    get() {
-        return __config.get("caCertificate");
-    },
-    enumerable: true,
-});
-
-/**
- * Set cache memory size in MB
- */
-export declare const cacheMemSize: string | undefined;
-Object.defineProperty(exports, "cacheMemSize", {
-    get() {
-        return __config.get("cacheMemSize");
-    },
-    enumerable: true,
-});
-
-/**
- * Enable cache REST API requests
- */
-export declare const cacheRequests: boolean | undefined;
-Object.defineProperty(exports, "cacheRequests", {
-    get() {
-        return __config.getObject<boolean>("cacheRequests");
-    },
-    enumerable: true,
-});
-
-/**
- * Set cache TTL in seconds
- */
-export declare const cacheTtl: number | undefined;
-Object.defineProperty(exports, "cacheTtl", {
-    get() {
-        return __config.getObject<number>("cacheTtl");
-    },
-    enumerable: true,
-});
-
-/**
- * Disable verification of the PowerDNS server's TLS certificate
- */
-export declare const insecureHttps: boolean | undefined;
-Object.defineProperty(exports, "insecureHttps", {
-    get() {
-        return __config.getObject<boolean>("insecureHttps");
-    },
-    enumerable: true,
-});
-
-/**
- * Location of PowerDNS server
+ * PowerDNS server URL. Can be set via environment variable `POWERDNS_SERVER_URL`.
  */
 export declare const serverUrl: string | undefined;
 Object.defineProperty(exports, "serverUrl", {

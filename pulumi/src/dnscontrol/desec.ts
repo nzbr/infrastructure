@@ -15,15 +15,15 @@ export const DESEC: DNSProviderImpl = (domain) => {
     }
     Object.keys(domain.records[type as RecordType]!).forEach((name) => {
       const record = domain.records[type as RecordType]![name]!;
-      const rrset = `${type} ${(name !== '@') ? `${name}.` : ''}${domain.name}.`;
-      new Rrset(rrset, {
+      const resourceName = `${type} ${(name !== '@') ? `${name}.` : ''}${domain.name}.`;
+      new Rrset(resourceName, {
         domain: domain.name,
         subname: (name === '@') ? '' : name,
         type: (type === 'ALIAS') ? 'CNAME' : type,
         records: record.records,
         ttl: record.ttl || domain.defaultTTL,
       }, {
-        parent: domain,
+        parent: domainResource,
         dependsOn: [
           domainResource
         ],

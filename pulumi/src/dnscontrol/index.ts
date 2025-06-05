@@ -116,8 +116,14 @@ export const DS = notImplementedModifier('DS');
 export const DefaultTTL = (ttl: number) => (domain: DomainComponent) => {
   domain.defaultTTL = ttl;
 }
-export const DnsProvider = (provider: DNSProviderImpl) => (domain: DomainComponent) => {
-  domain.dnsProvider = provider;
+export const DnsProvider = (...provider: DNSProviderImpl[]) => (domain: DomainComponent) => {
+  if (provider.length === 1) {
+    domain.dnsProvider = provider[0];
+  } else {
+    domain.dnsProvider = (d: DomainComponent) => {
+      provider.forEach(p => p(d));
+    };
+  }
 }
 export const FRAME = notImplementedModifier('FRAME');
 export const HTTPS = (name: string, priority: number, target: string, params: string, ...modifiers: RecordModifier[]) => genericRecord('HTTPS')(name, `${priority} ${target} ${params}`, ...modifiers);

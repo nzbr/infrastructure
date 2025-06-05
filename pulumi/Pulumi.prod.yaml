@@ -5,4 +5,5 @@ config:
     secure: AAABACjg0nhPk9pV8s2L7TmlKewdNsNKlzWhQCajhvuB8czHwt16PPDdkPQtK2YUBw+VzrIDT5VlkOfgw2m2ukJtLMQxS7YtVQqyZIblZlTGth4Iwi0bO8Qvl5sfXHqYazmWPXgUvA==
   powerdns:apiKey:
     secure: AAABAP6zTCtha/GfOAbtzpAyyPhUlJeB2hzfg80390u4VLRrv340hZWgjWXrFnqoQ6dSgS7aa/lko3B2IEduvTUWxDa6eMvaV3ABX2etaEepmBI57zVj+PmqsOridmGb
-  powerdns:serverUrl: https://beta.servfail.network
+  powerdns:serverUrl: https://beta.servfail.network/api/v1
+  infrastructure:powerdnsServerId: ns1.homecloud.lol

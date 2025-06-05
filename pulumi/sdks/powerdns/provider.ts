@@ -26,21 +26,13 @@ export class Provider extends pulumi.ProviderResource {
     }
 
     /**
-     * REST API authentication key
+     * PowerDNS API key for authentication. Can be set via environment variable `POWERDNS_API_KEY`.
      */
-    public readonly apiKey!: pulumi.Output<string>;
+    public readonly apiKey!: pulumi.Output<string | undefined>;
     /**
-     * Content or path of a Root CA to be used to verify PowerDNS's SSL certificate
+     * PowerDNS server URL. Can be set via environment variable `POWERDNS_SERVER_URL`.
      */
-    public readonly caCertificate!: pulumi.Output<string | undefined>;
-    /**
-     * Set cache memory size in MB
-     */
-    public readonly cacheMemSize!: pulumi.Output<string | undefined>;
-    /**
-     * Location of PowerDNS server
-     */
-    public readonly serverUrl!: pulumi.Output<string>;
+    public readonly serverUrl!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -49,25 +41,16 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            if ((!args || args.apiKey === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'apiKey'");
-            }
-            if ((!args || args.serverUrl === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'serverUrl'");
-            }
-            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
-            resourceInputs["caCertificate"] = args ? args.caCertificate : undefined;
-            resourceInputs["cacheMemSize"] = args ? args.cacheMemSize : undefined;
-            resourceInputs["cacheRequests"] = pulumi.output(args ? args.cacheRequests : undefined).apply(JSON.stringify);
-            resourceInputs["cacheTtl"] = pulumi.output(args ? args.cacheTtl : undefined).apply(JSON.stringify);
-            resourceInputs["insecureHttps"] = pulumi.output(args ? args.insecureHttps : undefined).apply(JSON.stringify);
+            resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["serverUrl"] = args ? args.serverUrl : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["apiKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());
     }
 }
@@ -77,31 +60,11 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     /**
-     * REST API authentication key
+     * PowerDNS API key for authentication. Can be set via environment variable `POWERDNS_API_KEY`.
      */
-    apiKey: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string>;
     /**
-     * Content or path of a Root CA to be used to verify PowerDNS's SSL certificate
+     * PowerDNS server URL. Can be set via environment variable `POWERDNS_SERVER_URL`.
      */
-    caCertificate?: pulumi.Input<string>;
-    /**
-     * Set cache memory size in MB
-     */
-    cacheMemSize?: pulumi.Input<string>;
-    /**
-     * Enable cache REST API requests
-     */
-    cacheRequests?: pulumi.Input<boolean>;
-    /**
-     * Set cache TTL in seconds
-     */
-    cacheTtl?: pulumi.Input<number>;
-    /**
-     * Disable verification of the PowerDNS server's TLS certificate
-     */
-    insecureHttps?: pulumi.Input<boolean>;
-    /**
-     * Location of PowerDNS server
-     */
-    serverUrl: pulumi.Input<string>;
+    serverUrl?: pulumi.Input<string>;
 }

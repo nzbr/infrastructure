@@ -110,8 +110,8 @@ export async function getPackage() : Promise<string | undefined> {
 			const monitor = runtime.getMonitor();
 			const params = new resproto.Parameterization();
 			params.setName("powerdns");
-			params.setVersion("1.5.0");
-			params.setValue(Uint8Array.from(atob("eyJyZW1vdGUiOnsidXJsIjoicmVnaXN0cnkub3BlbnRvZnUub3JnL3Bhbi1uZXQvcG93ZXJkbnMiLCJ2ZXJzaW9uIjoiMS41LjAifX0="), c => c.charCodeAt(0)));
+			params.setVersion("0.0.3");
+			params.setValue(Uint8Array.from(atob("eyJyZW1vdGUiOnsidXJsIjoicmVnaXN0cnkub3BlbnRvZnUub3JnL2dvbnpvbGluby9wb3dlcmRucyIsInZlcnNpb24iOiIwLjAuMyJ9fQ=="), c => c.charCodeAt(0)));
 
 			const req = new resproto.RegisterPackageRequest();
 			req.setName("terraform-provider");

@@ -1,9 +1,10 @@
 import {CNAME, D, DefaultTTL, DnsProvider, SRV, TXT} from "../dnscontrol";
 import {DESEC} from "../dnscontrol/desec";
 import {letsencryptRecords, mailboxOrgRecords, rootRecords, serverRecords} from "./common";
+import {PowerDNS} from "../dnscontrol/powerdns";
 
-D('nzbr.de', null, DnsProvider(DESEC), DefaultTTL(3600), // minimum value for desec.io
-  TXT('_servfail-challenge', 'RqmWJSa332Pl79ZyEvfAw.3vKEM'),
+D('nzbr.de', null, DnsProvider(DESEC, PowerDNS), DefaultTTL(3600), // minimum value for desec.io
+  TXT('_servfail-challenge', 'lqKJ5Zd042syIoLmSFerSdypk'),
   ...rootRecords,
   ...serverRecords,
   ...letsencryptRecords,

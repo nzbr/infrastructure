@@ -5,15 +5,25 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
+export { GetRecordsetArgs, GetRecordsetResult, GetRecordsetOutputArgs } from "./getRecordset";
+export const getRecordset: typeof import("./getRecordset").getRecordset = null as any;
+export const getRecordsetOutput: typeof import("./getRecordset").getRecordsetOutput = null as any;
+utilities.lazyLoad(exports, ["getRecordset","getRecordsetOutput"], () => require("./getRecordset"));
+
+export { GetZoneArgs, GetZoneResult, GetZoneOutputArgs } from "./getZone";
+export const getZone: typeof import("./getZone").getZone = null as any;
+export const getZoneOutput: typeof import("./getZone").getZoneOutput = null as any;
+utilities.lazyLoad(exports, ["getZone","getZoneOutput"], () => require("./getZone"));
+
 export { ProviderArgs } from "./provider";
 export type Provider = import("./provider").Provider;
 export const Provider: typeof import("./provider").Provider = null as any;
 utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
 
-export { RecordArgs, RecordState } from "./record";
-export type Record = import("./record").Record;
-export const Record: typeof import("./record").Record = null as any;
-utilities.lazyLoad(exports, ["Record"], () => require("./record"));
+export { RecordsetArgs, RecordsetState } from "./recordset";
+export type Recordset = import("./recordset").Recordset;
+export const Recordset: typeof import("./recordset").Recordset = null as any;
+utilities.lazyLoad(exports, ["Recordset"], () => require("./recordset"));
 
 export { ZoneArgs, ZoneState } from "./zone";
 export type Zone = import("./zone").Zone;
@@ -32,8 +42,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "powerdns:index/record:Record":
-                return new Record(name, <any>undefined, { urn })
+            case "powerdns:index/recordset:Recordset":
+                return new Recordset(name, <any>undefined, { urn })
             case "powerdns:index/zone:Zone":
                 return new Zone(name, <any>undefined, { urn })
             default:
@@ -41,7 +51,7 @@ const _module = {
         }
     },
 };
-pulumi.runtime.registerResourceModule("powerdns", "index/record", _module)
+pulumi.runtime.registerResourceModule("powerdns", "index/recordset", _module)
 pulumi.runtime.registerResourceModule("powerdns", "index/zone", _module)
 pulumi.runtime.registerResourcePackage("powerdns", {
     version: utilities.getVersion(),

@@ -15,9 +15,11 @@
     "files": [
         "config/index.ts",
         "config/vars.ts",
+        "getRecordset.ts",
+        "getZone.ts",
         "index.ts",
         "provider.ts",
-        "record.ts",
+        "recordset.ts",
         "utilities.ts",
         "zone.ts"
     ]
