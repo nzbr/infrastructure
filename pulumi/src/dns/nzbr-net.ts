@@ -1,8 +1,9 @@
 import {CNAME, D, DefaultTTL, DnsProvider, SRV, TXT} from "../dnscontrol";
 import {DESEC} from "../dnscontrol/desec";
-import {letsencryptRecords, mailboxOrgRecords, rootRecords, serverRecords} from "./common";
+import {letsencryptRecords, mailboxOrgRecords, serverRecords} from "./common";
 
 D('nzbr.net', null, DnsProvider(DESEC), DefaultTTL(3600), // minimum value for desec.io
+  TXT('_servfail-challenge', 'oScCbH5F4Dp8iSlNpVxYKlrYXkSAC'),
   ...serverRecords,
   ...letsencryptRecords,
   ...mailboxOrgRecords,

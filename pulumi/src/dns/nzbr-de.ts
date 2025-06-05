@@ -3,6 +3,7 @@ import {DESEC} from "../dnscontrol/desec";
 import {letsencryptRecords, mailboxOrgRecords, rootRecords, serverRecords} from "./common";
 
 D('nzbr.de', null, DnsProvider(DESEC), DefaultTTL(3600), // minimum value for desec.io
+  TXT('_servfail-challenge', 'RqmWJSa332Pl79ZyEvfAw.3vKEM'),
   ...rootRecords,
   ...serverRecords,
   ...letsencryptRecords,

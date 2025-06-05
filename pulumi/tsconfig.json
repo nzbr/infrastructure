@@ -3,7 +3,7 @@
         "strict": true,
         "outDir": "bin",
         "target": "ES2022",
-        "module": "commonjs",
+        "module": "CommonJS",
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "esModuleInterop": true,
