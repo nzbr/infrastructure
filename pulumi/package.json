@@ -3,20 +3,16 @@
     "main": "src/index.ts",
     "scripts": {
         "preview": "pulumi preview",
-        "up": "pulumi up",
-        "install-provider": "ts-node install-provider.ts"
+        "up": "pulumi up"
     },
     "devDependencies": {
-        "@types/command-exists": "^1.2.3",
-        "@types/node": "^20.0.0",
-        "command-exists": "^1.2.9",
-        "prettier": "^2.7.1",
-        "ts-node": "^10.9.2",
-        "typescript": "^5.0.0"
+        "@types/node": "^20.17.57",
+        "prettier": "^2.8.8",
+        "typescript": "^5.8.3"
     },
     "dependencies": {
-        "@pulumi/desec": "link:pulumi-desec\\sdk\\nodejs\\bin",
-        "@pulumi/pulumi": "^3.0.0"
+        "@pulumi/desec": "file:sdks\\desec",
+        "@pulumi/pulumi": "^3.174.0"
     },
-    "packageManager": "pnpm@9.12.1+sha512.e5a7e52a4183a02d5931057f7a0dbff9d5e9ce3161e33fa68ae392125b79282a8a8a470a51dfc8a0ed86221442eb2fb57019b0990ed24fab519bf0e1bc5ccfc4"
+    "packageManager": "pnpm@10.11.1+sha512.e519b9f7639869dc8d5c3c5dfef73b3f091094b0a006d7317353c72b124e80e1afd429732e28705ad6bfa1ee879c1fce46c128ccebd3192101f43dd67c667912"
 }

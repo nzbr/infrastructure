@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import {RRSetArgs} from "@pulumi/desec";
+import {RrsetArgs} from "@pulumi/desec";
 import {ComponentResource, Input, log} from "@pulumi/pulumi";
 import {Optional} from "../util";
 
@@ -22,7 +22,7 @@ export class DomainComponent extends ComponentResource {
 
   records: {
     [key in RecordType]?: {
-      [name in string]?: Optional<{ [k in keyof RRSetArgs]: RRSetArgs[k] extends Input<infer U> ? (U extends Input<infer V>[] ? V[] : U) : never }, 'ttl'>
+      [name in string]?: Optional<{ [k in keyof RrsetArgs]: RrsetArgs[k] extends Input<infer U> ? (U extends Input<infer V>[] ? V[] : U) : never }, 'ttl'>
     }
   } = {};
 

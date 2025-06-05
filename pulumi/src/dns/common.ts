@@ -40,7 +40,7 @@ export const mailboxOrgRecords = [
   CNAME('mbo0003._domainkey', 'mbo0003._domainkey.mailbox.org.'),
   CNAME('mbo0004._domainkey', 'mbo0004._domainkey.mailbox.org.'),
   TXT('_dmarc', '"v=DMARC1;p=none;ruf=mailto:postmaster@nzbr.net"'),
-]
+];
 
 export const letsencryptRecords = [
   CAA_BUILDER({
@@ -51,4 +51,4 @@ export const letsencryptRecords = [
     issuewild: ['letsencrypt.org'],
     issuewild_critical: true
   })
-]
+];

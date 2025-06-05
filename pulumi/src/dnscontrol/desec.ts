@@ -1,5 +1,5 @@
 import {DNSProviderImpl, RecordType} from "./index";
-import {Domain, RRSet} from "@pulumi/desec";
+import {Domain, Rrset} from "@pulumi/desec";
 import {log} from "@pulumi/pulumi";
 
 export const DESEC: DNSProviderImpl = (domain) => {
@@ -16,7 +16,7 @@ export const DESEC: DNSProviderImpl = (domain) => {
     Object.keys(domain.records[type as RecordType]!).forEach((name) => {
       const record = domain.records[type as RecordType]![name]!;
       const rrset = `${type} ${(name !== '@') ? `${name}.` : ''}${domain.name}.`;
-      new RRSet(rrset, {
+      new Rrset(rrset, {
         domain: domain.name,
         subname: (name === '@') ? '' : name,
         type: (type === 'ALIAS') ? 'CNAME' : type,
