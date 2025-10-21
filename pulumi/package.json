@@ -6,7 +6,7 @@
         "up": "pulumi up"
     },
     "devDependencies": {
-        "@types/node": "^20.17.57",
+        "@types/node": "^22.0.0",
         "prettier": "^2.8.8",
         "typescript": "^5.8.3"
     },
