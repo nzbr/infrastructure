@@ -1,10 +1,13 @@
 import {A, AAAA, CAA_BUILDER, CNAME, MX, SRV, TXT} from "../dnscontrol";
 
-export const servers: { [key: string]: { ip4: string; ip6: string } } = {
+export const servers: { [key: string]: { ip4?: string; ip6?: string } } = {
   firestorm: {
     ip4: '46.38.250.20',
     ip6: '2a03:4000:b:120::1',
-  }
+  },
+  maelstrom: {
+    ip4: '10.0.1.4',
+  },
 };
 
 export const main: typeof servers = {
@@ -12,11 +15,11 @@ export const main: typeof servers = {
 }
 
 export const ip4 = Object.keys(main)
-  .map((k) => main[k].ip4)
-  .filter((x?: string) => !!x);
+  .filter((k: string) => !!main[k].ip4)
+  .map((k: string) => main[k].ip4!);
 export const ip6 = Object.keys(main)
-  .map((k) => main[k].ip6)
-  .filter((x?: string) => !!x);
+  .filter((k: string) => !!main[k].ip6)
+  .map((k: string) => main[k].ip6!);
 
 export const rootRecords = [
   ...ip4.map((ip) => A('@', ip)),
@@ -24,8 +27,8 @@ export const rootRecords = [
 ];
 
 export const serverRecords = [
-  ...Object.keys(servers).map((srv) => A(srv, servers[srv].ip4)),
-  ...Object.keys(servers).map((srv) => AAAA(srv, servers[srv].ip6)),
+  ...Object.keys(servers).filter((srv) => !!servers[srv].ip4).map((srv) => A(srv, servers[srv].ip4!)),
+  ...Object.keys(servers).filter((srv) => !!servers[srv].ip6).map((srv) => AAAA(srv, servers[srv].ip6!)),
 ];
 
 export const mailboxOrgRecords = [
