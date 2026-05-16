@@ -9,7 +9,7 @@
     "devDependencies": {
         "@types/node": "^20.17.57",
         "prettier": "^2.8.8",
-        "typescript": "^5.8.3"
+        "typescript": "^6.0.0"
     },
     "dependencies": {
         "@muhlba91/pulumi-proxmoxve": "^8.1.0",
