@@ -28,8 +28,8 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * The API token for operations.
      */
-    public readonly apiToken!: pulumi.Output<string | undefined>;
-    public readonly apiUri!: pulumi.Output<string | undefined>;
+    declare public readonly apiToken: pulumi.Output<string | undefined>;
+    declare public readonly apiUri: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -42,9 +42,9 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["apiToken"] = args ? args.apiToken : undefined;
-            resourceInputs["apiUri"] = args ? args.apiUri : undefined;
-            resourceInputs["retryMax"] = pulumi.output(args ? args.retryMax : undefined).apply(JSON.stringify);
+            resourceInputs["apiToken"] = args?.apiToken;
+            resourceInputs["apiUri"] = args?.apiUri;
+            resourceInputs["retryMax"] = pulumi.output(args?.retryMax).apply(JSON.stringify);
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provider.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

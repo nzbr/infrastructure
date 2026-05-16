@@ -32,14 +32,14 @@ export class Rrset extends pulumi.CustomResource {
         return obj['__pulumiType'] === Rrset.__pulumiType;
     }
 
-    public /*out*/ readonly created!: pulumi.Output<string>;
-    public readonly domain!: pulumi.Output<string>;
-    public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly records!: pulumi.Output<string[]>;
-    public readonly rrsetId!: pulumi.Output<string>;
-    public readonly subname!: pulumi.Output<string>;
-    public readonly ttl!: pulumi.Output<number>;
-    public readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly created: pulumi.Output<string>;
+    declare public readonly domain: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
+    declare public readonly records: pulumi.Output<string[]>;
+    declare public readonly rrsetId: pulumi.Output<string>;
+    declare public readonly subname: pulumi.Output<string>;
+    declare public readonly ttl: pulumi.Output<number>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a Rrset resource with the given unique name, arguments, and options.
@@ -54,37 +54,37 @@ export class Rrset extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RrsetState | undefined;
-            resourceInputs["created"] = state ? state.created : undefined;
-            resourceInputs["domain"] = state ? state.domain : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["records"] = state ? state.records : undefined;
-            resourceInputs["rrsetId"] = state ? state.rrsetId : undefined;
-            resourceInputs["subname"] = state ? state.subname : undefined;
-            resourceInputs["ttl"] = state ? state.ttl : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["created"] = state?.created;
+            resourceInputs["domain"] = state?.domain;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["records"] = state?.records;
+            resourceInputs["rrsetId"] = state?.rrsetId;
+            resourceInputs["subname"] = state?.subname;
+            resourceInputs["ttl"] = state?.ttl;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as RrsetArgs | undefined;
-            if ((!args || args.domain === undefined) && !opts.urn) {
+            if (args?.domain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if ((!args || args.records === undefined) && !opts.urn) {
+            if (args?.records === undefined && !opts.urn) {
                 throw new Error("Missing required property 'records'");
             }
-            if ((!args || args.subname === undefined) && !opts.urn) {
+            if (args?.subname === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subname'");
             }
-            if ((!args || args.ttl === undefined) && !opts.urn) {
+            if (args?.ttl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ttl'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["records"] = args ? args.records : undefined;
-            resourceInputs["rrsetId"] = args ? args.rrsetId : undefined;
-            resourceInputs["subname"] = args ? args.subname : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["records"] = args?.records;
+            resourceInputs["rrsetId"] = args?.rrsetId;
+            resourceInputs["subname"] = args?.subname;
+            resourceInputs["ttl"] = args?.ttl;
+            resourceInputs["type"] = args?.type;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         }

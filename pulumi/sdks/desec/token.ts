@@ -32,16 +32,16 @@ export class Token extends pulumi.CustomResource {
         return obj['__pulumiType'] === Token.__pulumiType;
     }
 
-    public readonly allowedSubnets!: pulumi.Output<string[]>;
-    public readonly autoPolicy!: pulumi.Output<boolean>;
-    public /*out*/ readonly created!: pulumi.Output<string>;
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly owner!: pulumi.Output<string>;
-    public readonly permCreateDomain!: pulumi.Output<boolean>;
-    public readonly permDeleteDomain!: pulumi.Output<boolean>;
-    public readonly permManageTokens!: pulumi.Output<boolean>;
-    public /*out*/ readonly token!: pulumi.Output<string>;
-    public readonly tokenId!: pulumi.Output<string>;
+    declare public readonly allowedSubnets: pulumi.Output<string[]>;
+    declare public readonly autoPolicy: pulumi.Output<boolean>;
+    declare public /*out*/ readonly created: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly owner: pulumi.Output<string>;
+    declare public readonly permCreateDomain: pulumi.Output<boolean>;
+    declare public readonly permDeleteDomain: pulumi.Output<boolean>;
+    declare public readonly permManageTokens: pulumi.Output<boolean>;
+    declare public /*out*/ readonly token: pulumi.Output<string>;
+    declare public readonly tokenId: pulumi.Output<string>;
 
     /**
      * Create a Token resource with the given unique name, arguments, and options.
@@ -56,25 +56,25 @@ export class Token extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TokenState | undefined;
-            resourceInputs["allowedSubnets"] = state ? state.allowedSubnets : undefined;
-            resourceInputs["autoPolicy"] = state ? state.autoPolicy : undefined;
-            resourceInputs["created"] = state ? state.created : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["owner"] = state ? state.owner : undefined;
-            resourceInputs["permCreateDomain"] = state ? state.permCreateDomain : undefined;
-            resourceInputs["permDeleteDomain"] = state ? state.permDeleteDomain : undefined;
-            resourceInputs["permManageTokens"] = state ? state.permManageTokens : undefined;
-            resourceInputs["token"] = state ? state.token : undefined;
-            resourceInputs["tokenId"] = state ? state.tokenId : undefined;
+            resourceInputs["allowedSubnets"] = state?.allowedSubnets;
+            resourceInputs["autoPolicy"] = state?.autoPolicy;
+            resourceInputs["created"] = state?.created;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["owner"] = state?.owner;
+            resourceInputs["permCreateDomain"] = state?.permCreateDomain;
+            resourceInputs["permDeleteDomain"] = state?.permDeleteDomain;
+            resourceInputs["permManageTokens"] = state?.permManageTokens;
+            resourceInputs["token"] = state?.token;
+            resourceInputs["tokenId"] = state?.tokenId;
         } else {
             const args = argsOrState as TokenArgs | undefined;
-            resourceInputs["allowedSubnets"] = args ? args.allowedSubnets : undefined;
-            resourceInputs["autoPolicy"] = args ? args.autoPolicy : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permCreateDomain"] = args ? args.permCreateDomain : undefined;
-            resourceInputs["permDeleteDomain"] = args ? args.permDeleteDomain : undefined;
-            resourceInputs["permManageTokens"] = args ? args.permManageTokens : undefined;
-            resourceInputs["tokenId"] = args ? args.tokenId : undefined;
+            resourceInputs["allowedSubnets"] = args?.allowedSubnets;
+            resourceInputs["autoPolicy"] = args?.autoPolicy;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permCreateDomain"] = args?.permCreateDomain;
+            resourceInputs["permDeleteDomain"] = args?.permDeleteDomain;
+            resourceInputs["permManageTokens"] = args?.permManageTokens;
+            resourceInputs["tokenId"] = args?.tokenId;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
             resourceInputs["token"] = undefined /*out*/;

@@ -34,12 +34,12 @@ export class Domain extends pulumi.CustomResource {
         return obj['__pulumiType'] === Domain.__pulumiType;
     }
 
-    public /*out*/ readonly created!: pulumi.Output<string>;
-    public readonly domainId!: pulumi.Output<string>;
-    public /*out*/ readonly keys!: pulumi.Output<outputs.DomainKey[]>;
-    public /*out*/ readonly minimumTtl!: pulumi.Output<number>;
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly published!: pulumi.Output<string>;
+    declare public /*out*/ readonly created: pulumi.Output<string>;
+    declare public readonly domainId: pulumi.Output<string>;
+    declare public /*out*/ readonly keys: pulumi.Output<outputs.DomainKey[]>;
+    declare public /*out*/ readonly minimumTtl: pulumi.Output<number>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly published: pulumi.Output<string>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -54,16 +54,16 @@ export class Domain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
-            resourceInputs["created"] = state ? state.created : undefined;
-            resourceInputs["domainId"] = state ? state.domainId : undefined;
-            resourceInputs["keys"] = state ? state.keys : undefined;
-            resourceInputs["minimumTtl"] = state ? state.minimumTtl : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["published"] = state ? state.published : undefined;
+            resourceInputs["created"] = state?.created;
+            resourceInputs["domainId"] = state?.domainId;
+            resourceInputs["keys"] = state?.keys;
+            resourceInputs["minimumTtl"] = state?.minimumTtl;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["published"] = state?.published;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            resourceInputs["domainId"] = args ? args.domainId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["domainId"] = args?.domainId;
+            resourceInputs["name"] = args?.name;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["keys"] = undefined /*out*/;
             resourceInputs["minimumTtl"] = undefined /*out*/;

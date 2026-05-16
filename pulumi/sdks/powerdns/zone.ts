@@ -35,15 +35,15 @@ export class Zone extends pulumi.CustomResource {
     /**
      * Zone kind, one of "Native", "Master", "Slave".
      */
-    public readonly kind!: pulumi.Output<string>;
+    declare public readonly kind: pulumi.Output<string>;
     /**
      * Name of the zone (e.g. "example.com.") MUST have a trailing dot.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The id of the server.
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
 
     /**
      * Create a Zone resource with the given unique name, arguments, and options.
@@ -58,20 +58,20 @@ export class Zone extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["serverId"] = state?.serverId;
         } else {
             const args = argsOrState as ZoneArgs | undefined;
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverId"] = args?.serverId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Zone.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

@@ -1,5 +1,5 @@
 import {Config} from "@pulumi/pulumi";
-import {DNSProviderImpl, RecordType} from "./index";
+import type { DNSProviderImpl, RecordType } from "./index.ts";
 import {Recordset, Zone} from "@pulumi/powerdns";
 
 export const PowerDNS: DNSProviderImpl = (domain) => {

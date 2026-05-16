@@ -2,13 +2,13 @@ name: infrastructure
 runtime: nodejs
 description: nzbr's infrastructure configuration
 packages:
-  desec:
-    source: terraform-provider
-    version: 0.11.0
-    parameters:
-      - Valodim/desec
-  powerdns:
-    source: terraform-provider
-    version: 0.11.0
-    parameters:
-      - gonzolino/powerdns
+    desec:
+        source: terraform-provider
+        version: 0.11.0
+        parameters:
+            - Valodim/desec
+    powerdns:
+        source: terraform-provider
+        version: 0.11.0
+        parameters:
+            - gonzolino/powerdns

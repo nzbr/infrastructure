@@ -1,4 +1,4 @@
-import {DNSProviderImpl, RecordType} from "./index";
+import type { DNSProviderImpl, RecordType } from "./index.ts";
 import {Domain, Rrset} from "@pulumi/desec";
 import {log} from "@pulumi/pulumi";
 

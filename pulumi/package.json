@@ -1,6 +1,7 @@
 {
     "name": "infrastructure",
     "main": "src/index.ts",
+    "type": "module",
     "scripts": {
         "preview": "pulumi preview",
         "up": "pulumi up"
@@ -11,6 +12,9 @@
         "typescript": "^5.8.3"
     },
     "dependencies": {
+        "@muhlba91/pulumi-proxmoxve": "^8.1.0",
+        "@openprox/proxmox-api": "^1.2.0",
+        "@pulumi/command": "^1.2.1",
         "@pulumi/desec": "file:sdks/desec",
         "@pulumi/powerdns": "file:sdks/powerdns",
         "@pulumi/pulumi": "^3.174.0"

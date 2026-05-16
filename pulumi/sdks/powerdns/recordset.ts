@@ -35,27 +35,27 @@ export class Recordset extends pulumi.CustomResource {
     /**
      * Name for record set (e.g. "www.powerdns.com.")
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * All records in this record set.
      */
-    public readonly records!: pulumi.Output<string[]>;
+    declare public readonly records: pulumi.Output<string[]>;
     /**
      * The id of the server.
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
     /**
      * DNS TTL of the records, in seconds.
      */
-    public readonly ttl!: pulumi.Output<number>;
+    declare public readonly ttl: pulumi.Output<number>;
     /**
      * Type of this record (e.g. "A", "PTR", "MX").
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * ID of the zone this record set belongs to.
      */
-    public readonly zoneId!: pulumi.Output<string>;
+    declare public readonly zoneId: pulumi.Output<string>;
 
     /**
      * Create a Recordset resource with the given unique name, arguments, and options.
@@ -70,35 +70,35 @@ export class Recordset extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RecordsetState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["records"] = state ? state.records : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
-            resourceInputs["ttl"] = state ? state.ttl : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["zoneId"] = state ? state.zoneId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["records"] = state?.records;
+            resourceInputs["serverId"] = state?.serverId;
+            resourceInputs["ttl"] = state?.ttl;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["zoneId"] = state?.zoneId;
         } else {
             const args = argsOrState as RecordsetArgs | undefined;
-            if ((!args || args.records === undefined) && !opts.urn) {
+            if (args?.records === undefined && !opts.urn) {
                 throw new Error("Missing required property 'records'");
             }
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            if ((!args || args.ttl === undefined) && !opts.urn) {
+            if (args?.ttl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ttl'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.zoneId === undefined) && !opts.urn) {
+            if (args?.zoneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'zoneId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["records"] = args ? args.records : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["zoneId"] = args ? args.zoneId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["records"] = args?.records;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["ttl"] = args?.ttl;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["zoneId"] = args?.zoneId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Recordset.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

@@ -1,8 +1,9 @@
 // noinspection JSUnusedGlobalSymbols
 
-import {RrsetArgs} from "@pulumi/desec";
-import {ComponentResource, Input, log} from "@pulumi/pulumi";
-import {Optional} from "../util";
+// noinspection JSUnusedGlobalSymbols
+import type { RrsetArgs } from "@pulumi/desec";
+import {ComponentResource, type Input, log} from "@pulumi/pulumi";
+import type { Optional } from "../util.ts";
 
 export const NewRegistrar = (name: string) => undefined as unknown;
 export const NewDnsProvider = (name: string) => name;
@@ -118,7 +119,7 @@ export const DefaultTTL = (ttl: number) => (domain: DomainComponent) => {
 }
 export const DnsProvider = (...provider: DNSProviderImpl[]) => (domain: DomainComponent) => {
   if (provider.length === 1) {
-    domain.dnsProvider = provider[0];
+    domain.dnsProvider = provider[0]!;
   } else {
     domain.dnsProvider = (d: DomainComponent) => {
       provider.forEach(p => p(d));
@@ -173,5 +174,5 @@ export const CAA_CRITICAL = (domain: DomainComponent, type: RecordType, name: st
   }
   // record to be modified was appended last
   const records = (domain.records['CAA']!)[name]!.records
-  records[records.length - 1] = records[records.length - 1].replace(/^0 /, '128 ');
+  records[records.length - 1] = records[records.length - 1]!.replace(/^0 /, '128 ');
 }

@@ -1,3 +1,3 @@
-export * from './nzbr-de';
-export * from './nzbr-link';
-export * from './nzbr-net';
+export * from './nzbr-de.ts';
+export * from './nzbr-link.ts';
+export * from './nzbr-net.ts';

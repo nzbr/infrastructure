@@ -1,0 +1,104 @@
+{
+  "nodes": {
+    "basement": {
+      "inputs": {
+        "flake-parts": "flake-parts",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1777509043,
+        "narHash": "sha256-6riZySq7iskfiw+dPHctPg1ua38vsUtREk+RzChvZF4=",
+        "path": "/home/nzbr/Projekte/nix-prefab/basement",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/nzbr/Projekte/nix-prefab/basement",
+        "type": "path"
+      }
+    },
+    "flake-parts": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "basement",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775087534,
+        "narHash": "sha256-91qqW8lhL7TLwgQWijoGBbiD4t7/q75KTi8NxjVmSmA=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "3107b77cd68437b9a76194f0f7f9c55f2329ca5b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1777268161,
+        "narHash": "sha256-bxrdOn8SCOv8tN4JbTF/TXq7kjo9ag4M+C8yzzIRYbE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1c3fe55ad329cbcb28471bb30f05c9827f724c76",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "plumbing-hosts": {
+      "inputs": {
+        "basement": [
+          "story-nixos",
+          "basement"
+        ]
+      },
+      "locked": {
+        "lastModified": 1776731512,
+        "narHash": "sha256-DH91YCVGARRwQGPuIE7gU9QwzE7BTH3iAu+kgDRXrm4=",
+        "path": "/home/nzbr/Projekte/nix-prefab/plumbing-hosts",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/nzbr/Projekte/nix-prefab/plumbing-hosts",
+        "type": "path"
+      }
+    },
+    "root": {
+      "inputs": {
+        "basement": "basement",
+        "nixpkgs": "nixpkgs",
+        "story-nixos": "story-nixos"
+      }
+    },
+    "story-nixos": {
+      "inputs": {
+        "basement": [
+          "basement"
+        ],
+        "plumbing-hosts": "plumbing-hosts"
+      },
+      "locked": {
+        "lastModified": 1777419340,
+        "narHash": "sha256-tN+oJ6mMZZxKBZ/SxB1/RD4MgrcO3AbroDoKNIveHW0=",
+        "path": "/home/nzbr/Projekte/nix-prefab/story-nixos",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/nzbr/Projekte/nix-prefab/story-nixos",
+        "type": "path"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

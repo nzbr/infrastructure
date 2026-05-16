@@ -32,12 +32,12 @@ export class TokenPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === TokenPolicy.__pulumiType;
     }
 
-    public readonly domain!: pulumi.Output<string | undefined>;
-    public readonly permWrite!: pulumi.Output<boolean>;
-    public readonly subname!: pulumi.Output<string | undefined>;
-    public readonly tokenId!: pulumi.Output<string>;
-    public readonly tokenPolicyId!: pulumi.Output<string>;
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly domain: pulumi.Output<string | undefined>;
+    declare public readonly permWrite: pulumi.Output<boolean>;
+    declare public readonly subname: pulumi.Output<string | undefined>;
+    declare public readonly tokenId: pulumi.Output<string>;
+    declare public readonly tokenPolicyId: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a TokenPolicy resource with the given unique name, arguments, and options.
@@ -52,26 +52,26 @@ export class TokenPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TokenPolicyState | undefined;
-            resourceInputs["domain"] = state ? state.domain : undefined;
-            resourceInputs["permWrite"] = state ? state.permWrite : undefined;
-            resourceInputs["subname"] = state ? state.subname : undefined;
-            resourceInputs["tokenId"] = state ? state.tokenId : undefined;
-            resourceInputs["tokenPolicyId"] = state ? state.tokenPolicyId : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["domain"] = state?.domain;
+            resourceInputs["permWrite"] = state?.permWrite;
+            resourceInputs["subname"] = state?.subname;
+            resourceInputs["tokenId"] = state?.tokenId;
+            resourceInputs["tokenPolicyId"] = state?.tokenPolicyId;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as TokenPolicyArgs | undefined;
-            if ((!args || args.permWrite === undefined) && !opts.urn) {
+            if (args?.permWrite === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permWrite'");
             }
-            if ((!args || args.tokenId === undefined) && !opts.urn) {
+            if (args?.tokenId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tokenId'");
             }
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["permWrite"] = args ? args.permWrite : undefined;
-            resourceInputs["subname"] = args ? args.subname : undefined;
-            resourceInputs["tokenId"] = args ? args.tokenId : undefined;
-            resourceInputs["tokenPolicyId"] = args ? args.tokenPolicyId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["permWrite"] = args?.permWrite;
+            resourceInputs["subname"] = args?.subname;
+            resourceInputs["tokenId"] = args?.tokenId;
+            resourceInputs["tokenPolicyId"] = args?.tokenPolicyId;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TokenPolicy.__pulumiType, name, resourceInputs, opts, false /*dependency*/, utilities.getPackage());

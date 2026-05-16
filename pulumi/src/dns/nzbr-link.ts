@@ -1,7 +1,7 @@
-import {A, AAAA, CNAME, D, DefaultTTL, DnsProvider, TXT} from "../dnscontrol";
-import {DESEC} from "../dnscontrol/desec";
-import {rootRecords} from "./common";
-import {PowerDNS} from "../dnscontrol/powerdns";
+import {A, AAAA, CNAME, D, DefaultTTL, DnsProvider, TXT} from "../dnscontrol/index.ts";
+import {DESEC} from "../dnscontrol/desec.ts";
+import {rootRecords} from "./common.ts";
+import {PowerDNS} from "../dnscontrol/powerdns.ts";
 
 D('nzbr.link', null, DnsProvider(DESEC, PowerDNS), DefaultTTL(3600), // minimum value for desec.io
   TXT('_servfail-challenge', 'AhUx5mH4_Cg_Z81jMZzM0IS02'),

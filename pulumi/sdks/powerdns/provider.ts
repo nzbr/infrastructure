@@ -28,11 +28,11 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * PowerDNS API key for authentication. Can be set via environment variable `POWERDNS_API_KEY`.
      */
-    public readonly apiKey!: pulumi.Output<string | undefined>;
+    declare public readonly apiKey: pulumi.Output<string | undefined>;
     /**
      * PowerDNS server URL. Can be set via environment variable `POWERDNS_SERVER_URL`.
      */
-    public readonly serverUrl!: pulumi.Output<string | undefined>;
+    declare public readonly serverUrl: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -46,7 +46,7 @@ export class Provider extends pulumi.ProviderResource {
         opts = opts || {};
         {
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
-            resourceInputs["serverUrl"] = args ? args.serverUrl : undefined;
+            resourceInputs["serverUrl"] = args?.serverUrl;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["apiKey"] };
